@@ -24,7 +24,7 @@ Accordion.Title = function AccordionTitle({ children, ...restProps }) {
 };
 
 Accordion.Item = function AccordionItem({ children, ...restProps }) {
-  const [toggleShow, setToggleShow] = useState(flase);
+  const [toggleShow, setToggleShow] = useState(false);
   return (
     <ToggleContext.Provider value={{ toggleShow, setToggleShow }}>
       <Item {...restProps}>{children}</Item>
