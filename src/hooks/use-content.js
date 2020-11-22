@@ -1,8 +1,4 @@
-import {
-  useState,
-  useEffect,
-  useContext,
-} from "core-js/library/fn/reflect/es7/metadata";
+import { useState, useEffect, useContext } from "react";
 import { FirebaseContext } from "../context/firebase";
 
 export default function useContent(target) {

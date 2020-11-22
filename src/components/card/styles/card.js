@@ -63,7 +63,8 @@ export const Text = styled.p`
 export const FeatureText = styled.p`
   font-size: 18px;
   color: #fff;
-  font-weight: ${({ fontWeight }) => (fontWeight === bold ? "bold" : "normal")};
+  font-weight: ${({ fontWeight }) =>
+    fontWeight === "bold" ? "bold" : "normal"};
   margin: 0;
 
   @media (max-width: 600px) {

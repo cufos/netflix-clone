@@ -1,5 +1,5 @@
 import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
+import { Link as ReactRouterLink } from "react-router-dom";
 
 export const Background = styled.div`
   display: flex;
@@ -44,7 +44,7 @@ export const Container = styled.div`
 
 export const Frame = styled.div``;
 
-export const ButtonLink = styled(Link)`
+export const ButtonLink = styled(ReactRouterLink)`
   display: block;
   background-color: #e50914;
   width: 84px;
@@ -113,15 +113,14 @@ export const Group = styled.div`
   align-items:center;
 `
 
-export const Profile = styled.div`
-  display:flex;
-  align-items:center;
-  margin-left:20px;
-  position:relative;
-
-  button{
-    cursor:pointer;
-  }
+export const Picture = styled.button`
+  background:url(${({src}) => src });
+  background-size:contain;
+  border:0;
+  outline:0;
+  width:32px;
+  height:32px;
+  cursor:pointer;
 `
 
 export const DropDown = styled.div`
@@ -160,16 +159,17 @@ export const DropDown = styled.div`
   }
 `
 
-export const Picture = styled.button`
-  background:url(${({src}) => src });
-  background-size:contain;
-  border:0;
-  outline:0;
-  width:32px;
-  height:32px;
-  cursor:pointer;
+export const Profile = styled.div`
+  display:flex;
+  align-items:center;
+  margin-left:20px;
+  position:relative;
 
-&:hover > ${DropDown}{
+  button{
+    cursor:pointer;
+  }
+
+  &:hover > ${DropDown}{
     display:flex;
     flex-direction:column;
   }

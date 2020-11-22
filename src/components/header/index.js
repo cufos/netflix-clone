@@ -17,7 +17,7 @@ import {
   Search,
   SearchIcon,
   SearchInput,
-  PlayButton
+  PlayButton,
 } from "./styles/header";
 
 export default function Header({ bg = true, children, ...restProps }) {
@@ -67,31 +67,33 @@ Header.DropDown = function HeaderDropDown({ children, ...restProps }) {
   return <DropDown {...restProps}>{children}</DropDown>;
 };
 Header.Picture = function HeaderPicture({ src, ...restProps }) {
-  return <Picture {...restProps} src={`/images/users/${src}.png`} />
+  return <Picture {...restProps} src={`/images/users/${src}.png`} />;
 };
 
-Header.Search = function HeaderSearch({searchTerm,setSearchTerm,...restPops}){
-  const [searchActive,setSearchActive] = useState(false)
+Header.Search = function HeaderSearch({
+  searchTerm,
+  setSearchTerm,
+  ...restPops
+}) {
+  const [searchActive, setSearchActive] = useState(false);
 
   return (
-    <Search {...restProps}>
-      <SearchIcon onClick={() => setSearchActive(searchActive => !searchActive)}>
-        <img src="/images/icons/search.png" alt="Search"/>
+    <Search {...restPops}>
+      <SearchIcon
+        onClick={() => setSearchActive((searchActive) => !searchActive)}
+      >
+        <img src="/images/icons/search.png" alt="Search" />
       </SearchIcon>
       <SearchInput
         value={searchTerm}
-        onChange={({target}) => setSearchTerm(target.value)}
-        placeholder='Search films and series'
+        onChange={({ target }) => setSearchTerm(target.value)}
+        placeholder="Search films and series"
         active={searchActive}
       />
     </Search>
-  )
-}
+  );
+};
 
-Header.PlayButton = function HeaderPlayButton({children,...restProps}){
-  return (
-    <PlayButton {...restProps}>
-      {children}
-    </PlayButton>
-)
-}
+Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+  return <PlayButton {...restProps}>{children}</PlayButton>;
+};
