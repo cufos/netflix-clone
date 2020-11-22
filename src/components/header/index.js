@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import {
   Container,
@@ -12,7 +13,11 @@ import {
   Link,
   FeatureCallOut,
   Profile,
-  DropDown
+  DropDown,
+  Search,
+  SearchIcon,
+  SearchInput,
+  PlayButton
 } from "./styles/header";
 
 export default function Header({ bg = true, children, ...restProps }) {
@@ -64,3 +69,29 @@ Header.DropDown = function HeaderDropDown({ children, ...restProps }) {
 Header.Picture = function HeaderPicture({ src, ...restProps }) {
   return <Picture {...restProps} src={`/images/users/${src}.png`} />
 };
+
+Header.Search = function HeaderSearch({searchTerm,setSearchTerm,...restPops}){
+  const [searchActive,setSearchActive] = useState(false)
+
+  return (
+    <Search {...restProps}>
+      <SearchIcon onClick={() => setSearchActive(searchActive => !searchActive)}>
+        <img src="/images/icons/search.png" alt="Search"/>
+      </SearchIcon>
+      <SearchInput
+        value={searchTerm}
+        onChange={({target}) => setSearchTerm(target.value)}
+        placeholder='Search films and series'
+        active={searchActive}
+      />
+    </Search>
+  )
+}
+
+Header.PlayButton = function HeaderPlayButton({children,...restProps}){
+  return (
+    <PlayButton {...restProps}>
+      {children}
+    </PlayButton>
+)
+}
