@@ -86,7 +86,7 @@ export default function BrowseContainer({ slides }) {
                 </Header.Group>
                 <Header.Group>
                   <Header.TextLink onClick={() => firebase.auth().signOut()}>
-                    Sign tut
+                    Sign out
                   </Header.TextLink>
                 </Header.Group>
               </Header.DropDown>
